@@ -114,16 +114,14 @@ mainPageLink.addEventListener('pointerdown', mainPageLinkClick);
 const burgers = Array.from(document.querySelectorAll('button.burger'));
 const burgerMenu = document.querySelector('section.burger-menu');
 const burgerMainPageLink = document.querySelector('.burger-main-page-link');
-
-const burgerMenuClose = () => {
-
-}
+const burgerLinks = document.querySelectorAll('.burger-link');
 
 const onBurgerClick = () => {
   burgers.forEach((burger) => {
     burger.classList.toggle('closed');
     if (!burger.classList.contains('closed')) {
       burgerMenu.classList.add('open');
+      mainPage.classList.remove('open');
       return;
     }
     burgerMenu.classList.remove('open');
@@ -131,8 +129,13 @@ const onBurgerClick = () => {
   })
 }
 
-const onBurgerLinkClick = () => {
-
+const onBurgerLinkClick = (evt) => {
+  evt.preventDefault();
+  const sectionId = evt.target.dataset.section;
+  slider.classList.add('no-transition');
+  slider.querySelector(`#${sectionId}`).scrollIntoView();
+  burgerMenu.classList.remove('open');
+  slider.classList.remove('no-transition');
 }
 
 const onMainLinkClick = (evt) => {
@@ -145,4 +148,7 @@ burgers.forEach((burger) => {
   burger.addEventListener('click', onBurgerClick)
 })
 
-burgerMainPageLink.addEventListener('click', onMainLinkClick)
+burgerMainPageLink.addEventListener('click', onMainLinkClick);
+burgerLinks.forEach((link) => {
+  link.addEventListener('click', onBurgerLinkClick);
+})
