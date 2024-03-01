@@ -67,9 +67,16 @@ const callback = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const currentSection = entry.target.dataset.sectionName;
+      entry.target.style.scrollBehavior = 'auto';
+      entry.target.scrollTop = -entry.target.scrollHeight;
+      entry.target.style.scrollBehavior = 'smooth';
       const currentTitle = header.querySelector('.header-current-title');
       currentTitle.textContent = currentSection;
     }
+    
+    entry.target.style.scrollBehavior = 'auto';
+    entry.target.scrollTop = -entry.target.scrollHeight;
+    entry.target.style.scrollBehavior = 'smooth';
   })
 }
 
@@ -129,12 +136,19 @@ const onBurgerClick = () => {
   })
 }
 
+const switchOffBurgers = () => {
+  burgers.forEach((burger) => {
+    burger.classList.add('closed')
+  })
+}
+
 const onBurgerLinkClick = (evt) => {
   evt.preventDefault();
   const sectionId = evt.target.dataset.section;
   slider.classList.add('no-transition');
   slider.querySelector(`#${sectionId}`).scrollIntoView();
   burgerMenu.classList.remove('open');
+  switchOffBurgers();
   slider.classList.remove('no-transition');
 }
 
@@ -142,6 +156,7 @@ const onMainLinkClick = (evt) => {
   evt.preventDefault();
   mainPage.classList.add('open');
   burgerMenu.classList.remove('open');
+  switchOffBurgers();
 }
 
 burgers.forEach((burger) => {
