@@ -3,7 +3,12 @@ const slides = [...slider.children];
 const controls = document.querySelectorAll('.container-controls');
 const prevBtn = document.querySelector('.container-controls.left');
 const nextBtn = document.querySelector('.container-controls.right');
-const sectionWidth = slider.querySelector('.section').offsetWidth;
+let sectionWidth = slider.querySelector('.section').offsetWidth;
+
+window.addEventListener('resize', () => {
+  sectionWidth = slider.querySelector('.section').offsetWidth;
+  slidesPerView = Math.round(slider.offsetWidth / sectionWidth);
+})
 
 let isDragging = false, startX, startScrollLeft;
 
@@ -61,7 +66,7 @@ slider.addEventListener("scroll", infiniteScroll);
 
 // ---header animations
 
-const header = document.querySelector('header.header');
+const header = document.querySelector('header.inner-header');
 
 const callback = (entries) => {
   entries.forEach((entry) => {
