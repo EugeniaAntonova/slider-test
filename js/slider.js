@@ -123,7 +123,8 @@ const burgerMenu = document.querySelector('section.burger-menu');
 const burgerMainPageLink = document.querySelector('.burger-main-page-link');
 const burgerLinks = document.querySelectorAll('.burger-link');
 
-const onBurgerClick = () => {
+const onBurgerClick = (evt) => {
+  let target = evt.target;
   burgers.forEach((burger) => {
     burger.classList.toggle('closed');
     if (!burger.classList.contains('closed')) {
@@ -134,6 +135,9 @@ const onBurgerClick = () => {
     burgerMenu.classList.remove('open');
     return;
   })
+  if (target.classList.contains('js-main-burger')) {
+    mainPage.classList.add('open');
+  }
 }
 
 const switchOffBurgers = () => {
