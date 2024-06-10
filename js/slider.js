@@ -5,14 +5,14 @@ const prevBtn = document.querySelector('.container-controls.left');
 const nextBtn = document.querySelector('.container-controls.right');
 let sectionWidth = slider.querySelector('.section').offsetWidth;
 
+let isDragging = false, startX, startScrollLeft;
+
+let slidesPerView = Math.round(slider.offsetWidth / sectionWidth);
+
 window.addEventListener('resize', () => {
   sectionWidth = slider.querySelector('.section').offsetWidth;
   slidesPerView = Math.round(slider.offsetWidth / sectionWidth);
 })
-
-let isDragging = false, startX, startScrollLeft;
-
-let slidesPerView = Math.round(slider.offsetWidth / sectionWidth);
 
 slides.slice(-slidesPerView).reverse().forEach((slide) => {
   slider.insertAdjacentHTML('afterbegin', slide.outerHTML);
@@ -85,7 +85,7 @@ const callback = (entries) => {
   })
 }
 
-const observer = new IntersectionObserver(callback, {threshold: 1})
+const observer = new IntersectionObserver(callback, {threshold: 0.1})
 
 slides.forEach((slide) => {
   observer.observe(slide);
@@ -94,7 +94,7 @@ slides.forEach((slide) => {
 slides.forEach((slide) => {
   slide.addEventListener('scroll', () => {
     const marker = slide.querySelector('.marker');
-    if (marker.getBoundingClientRect().top < 50) {
+    if (marker.getBoundingClientRect().top < 0) {
         header.classList.add('bkg-col');
     } else {
         header.classList.remove('bkg-col');
@@ -119,7 +119,7 @@ const mainPageLinkClick = (evt) => {
   slider.classList.remove('no-transition');
 }
 
-mainPageLink.addEventListener('pointerdown', mainPageLinkClick);
+mainPageLink.addEventListener('click', mainPageLinkClick);
 
 // ---------------- burger(-s) 
 
@@ -157,6 +157,7 @@ const onBurgerLinkClick = (evt) => {
   slider.classList.add('no-transition');
   slider.querySelector(`#${sectionId}`).scrollIntoView();
   burgerMenu.classList.remove('open');
+  mainPage.classList.remove('open');
   switchOffBurgers();
   slider.classList.remove('no-transition');
 }

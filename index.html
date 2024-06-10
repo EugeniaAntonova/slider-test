@@ -11,7 +11,7 @@
 <body>
   <main>
     <div class="page-container">
-      <header class="inner-header">
+      <header class="inner-header inner-section-container">
         <div class="buttons-wrapper">
           <button class="container-controls" id="left">left</button>
           <button class="container-controls" id="right">right</button>
@@ -20,65 +20,78 @@
         <button class="burger closed">burger</button>
       </header>
       <section class="burger-menu" style="background-color: green;">
-        <button class="burger closed">burger</button>
-        <ul>
-          <li><a href="#" class="burger-main-page-link">Main page</a></li>
-          <li><a href="#section1" class="burger-link" data-section="section1">Section 1</a></li>
-          <li><a href="#section2" class="burger-link" data-section="section2">Section 2</a></li>
-          <li><a href="#section3" class="burger-link" data-section="section3">Section 3</a></li>
-          <li><a href="#section4" class="burger-link" data-section="section4">Section 4</a></li>
-          <li><a href="#section5" class="burger-link" data-section="section5">Section 5</a></li>
-          <li><a href="#section6" class="burger-link" data-section="section6">Section 6</a></li>
-        </ul>
+        <div class="inner-section-container">
+          <div class="burger-wrapper">
+            <button class="burger closed">burger</button>
+          </div>
+          <ul>
+            <li><a href="#" class="burger-main-page-link">Main page</a></li>
+            <li><a href="#section1" class="burger-link" data-section="section1">Section 1</a></li>
+            <li><a href="#section2" class="burger-link" data-section="section2">Section 2</a></li>
+            <li><a href="#section3" class="burger-link" data-section="section3">Section 3</a></li>
+            <li><a href="#section4" class="burger-link" data-section="section4">Section 4</a></li>
+            <li><a href="#section5" class="burger-link" data-section="section5">Section 5</a></li>
+            <li><a href="#section6" class="burger-link" data-section="section6">Section 6</a></li>
+          </ul>
+        </div>
       </section>
       <section class="main-page open" style="background-color: aliceblue;">
-        <button class="burger closed js-main-burger">burger</button>
-        <a href="#section2" data-section="section2" class="button main-page-link">Перейти к черепашкам</a>
-        <a href="#" class="rules" target="_blank">Посмотреть правила</a>
+        <div class="inner-section-container">
+          <div class="burger-wrapper">
+            <button class="burger closed js-main-burger">burger</button>
+          </div>
+          <a href="#section2" data-section="section2" class="button main-page-link">Перейти к черепашкам</a>
+          <a href="#" class="rules" target="_blank">Посмотреть правила</a>
+        </div>
       </section>
       <div class="slider" id="slider">
         <section class="section" id="section1" data-section-name="Section 1" draggable="false">
           <div class="marker"></div>
-          <h2 class="visually-hidden">Section 1</h2>
+          <div class="inner-section-container">
+            <h2 class="visually-hidden">Section 1</h2>
+          </div>
         </section>
-        <section class="section" id="section2" data-section-name="Section 2" draggable="false"
-          style="position: relative;">
+        <section class="section section2" id="section2" data-section-name="Section 2" draggable="false">
           <h2 class="visually-hidden">Section 2</h2>
           <div class="marker"></div>
-          <img
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Freptileapartment.com%2Fwp-content%2Fuploads%2F10677215_10205367365727702_561140685_o.jpg&f=1&nofb=1&ipt=27f7112f6c0844d9e7b3eda58e0edaf55d47d5745b3ff059494c6e6748fe85d2&ipo=images"
-            alt="">
-          <img
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fseancrane.com%2Fblog%2Fwp-content%2Fuploads%2F2017%2F03%2Fred_footed_tortoise_7.jpg&f=1&nofb=1&ipt=d9de80ae342b401eadf16254b0a8b1801a5380460e651407a600d9af521cbbfc&ipo=images"
-            alt="">
-          <img
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Freptileapartment.com%2Fwp-content%2Fuploads%2F10677215_10205367365727702_561140685_o.jpg&f=1&nofb=1&ipt=27f7112f6c0844d9e7b3eda58e0edaf55d47d5745b3ff059494c6e6748fe85d2&ipo=images"
-            alt="">
-          <div class="some-fixed-element"
-            style="position: sticky; bottom: 0; width: 100%; height: 60px; background-color: aqua;"></div>
+          <div class="inner-section-container">
+            <img
+              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Freptileapartment.com%2Fwp-content%2Fuploads%2F10677215_10205367365727702_561140685_o.jpg&f=1&nofb=1&ipt=27f7112f6c0844d9e7b3eda58e0edaf55d47d5745b3ff059494c6e6748fe85d2&ipo=images"
+              alt="">
+            <img
+              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fseancrane.com%2Fblog%2Fwp-content%2Fuploads%2F2017%2F03%2Fred_footed_tortoise_7.jpg&f=1&nofb=1&ipt=d9de80ae342b401eadf16254b0a8b1801a5380460e651407a600d9af521cbbfc&ipo=images"
+              alt="">
+            <img
+              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Freptileapartment.com%2Fwp-content%2Fuploads%2F10677215_10205367365727702_561140685_o.jpg&f=1&nofb=1&ipt=27f7112f6c0844d9e7b3eda58e0edaf55d47d5745b3ff059494c6e6748fe85d2&ipo=images"
+              alt="">
+            <div class="some-fixed-element"
+              style="position: sticky; bottom: 0; width: 100%; height: 60px; background-color: aqua;"></div>
+          </div>
         </section>
         <section class="section" id="section3" data-section-name="Section 3" draggable="false">
           <div class="marker"></div>
-          <h2 class="visually-hidden">Section 3</h2>
+          <div class="inner-section-container">
+            <h2 class="visually-hidden">Section 3</h2>
+          </div>
         </section>
         <section class="section" id="section4" data-section-name="Section 4" draggable="false">
           <div class="marker"></div>
-          <h2 class="visually-hidden">Section 4</h2>
+          <div class="inner-section-container">
+            <h2 class="visually-hidden">Section 4</h2>
+          </div>
         </section>
         <section class="section" id="section5" data-section-name="Section 5" draggable="false">
           <div class="marker"></div>
-          <h2 class="visually-hidden">Section 5</h2>
+          <div class="inner-section-container">
+            <h2 class="visually-hidden">Section 5</h2>
+          </div>
         </section>
         <section class="section" id="section6" data-section-name="Section 6" draggable="false">
           <div class="marker"></div>
-          <h2 class="visually-hidden">Section 6</h2>
+          <div class="inner-section-container">
+            <h2 class="visually-hidden">Section 6</h2>
+          </div>
         </section>
-        <!--         <section class="section" id="section7" data-section-name="Section 7" draggable="false">
-                <h2 class="visually-hidden">Section 7</2>
-              </section>
-                      <section class="section" id="section8" data-section-name="Section 8" draggable="false">
-                <h2 class="visually-hidden">Section 8</2>
-              </section> -->
       </div>
     </div>
   </main>

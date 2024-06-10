@@ -29,9 +29,9 @@ main {
 
 .page-container {
   width: 100%;
-  max-width: 720px;
+  /* max-width: 720px; */
   height: 100vh;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   position: relative;
   display: grid;
 }
@@ -40,13 +40,18 @@ main {
   grid-area: 1 / -1;
 }
 
+.inner-section-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 .inner-header {
   position: sticky;
-  z-index: 10;
+  z-index: 2;
   left: 0;
   right: 0;
   top: 0;
-
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -69,6 +74,13 @@ main {
   transform: scaleY(1);
 }
 
+.burger-wrapper {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
 .buttons-wrapper {
   height: 100%;
   display: flex;
@@ -80,9 +92,6 @@ main {
 }
 
 .slider {
-  position: absolute;
-  inset: 16px;
-  top: 90px;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -140,13 +149,14 @@ img {
 
 .main-page,
 .burger-menu {
-  position: absolute;
-  z-index: 10;
-  inset: 16px;
-  top: 90px;
+  z-index: 3;
   outline: 1px solid gold;
-  transform: translateY(-300%);
+  transform: translateY(-200%);
   transition: transform .5s ease-in-out;
+}
+
+.burger-menu {
+  z-index: 4;
 }
 
 .main-page.open,
@@ -164,15 +174,4 @@ img {
 .container:has(section.burger-menu.open) :where(.header, .slider, .main-page) {
   opacity: 0;
   transition: opacity .5s ease-in-out;
-  /* position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden; */
 }
